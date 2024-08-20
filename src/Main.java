@@ -1,6 +1,9 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 // Press Alt+Intro with your caret at the highlighted text to see how
@@ -51,6 +54,27 @@ public class Main {
                 case 11:
                     ej11();
                     break;
+                case 12:
+                    ej12();
+                    break;
+                case 13:
+                    ej13();
+                    break;
+                case 14:
+                    ej14();
+                    break;
+                case 15:
+                    ej15();
+                    break;
+                case 16:
+                    ej16();
+                    break;
+                case 17:
+                    ej17();
+                    break;
+                case 18:
+                    ej18();
+                    break;
                 case 20:
                     string();
                     break;
@@ -72,7 +96,13 @@ public class Main {
         System.out.println("8 - Ejercicio 8");
         System.out.println("9 - Ejercicio 9");
         System.out.println("10 - Ejercicio 10");
-        System.out.println("11 - Ejercicio 11");
+        System.out.println("12 - Ejercicio 12");
+        System.out.println("13 - Ejercicio 13");
+        System.out.println("14 - Ejercicio 14");
+        System.out.println("15 - Ejercicio 15");
+        System.out.println("16 - Ejercicio 16");
+        System.out.println("17 - Ejercicio 17");
+        System.out.println("18 - Ejercicio 18");
         System.out.println("20 - Practica String");
         System.out.println("");
         System.out.println("0 para salir");
@@ -322,4 +352,137 @@ public class Main {
 
     }
 
+    private static void ej12(){
+        double cat1;
+        double cat2;
+        double hip;
+
+        System.out.println("Ingrese la longitud de un cateto de un triangulo:");
+        cat1 = ingreso.nextDouble();
+        System.out.println("Ingrese la longitud del otro cateto:");
+        cat2 = ingreso.nextDouble();
+
+        hip = sqrt((cat1*cat1) + (cat2*cat2));
+
+        System.out.println("La hipotenusa del triangulo es de: " + hip);
+
+
+    }
+
+    private  static void ej13(){
+        double radio;
+        double vol;
+
+        System.out.println("Ingrese el radio de una esfera: ");
+        radio = ingreso.nextDouble();
+
+        vol = 4/3 * 3.14 * pow(radio,3);
+
+        System.out.println("El volumen de la esfera es: " + vol);
+    }
+
+    private static void ej14(){
+        int num;
+        int primerCifra;
+        double segCifra;
+        double terCifra;
+
+        System.out.println("Ingrese un entero de 3 cifras: ");
+        num = ingreso.nextInt();
+
+        primerCifra = num/100;
+        segCifra = (num/10)%10;
+        terCifra = num%10;
+
+        System.out.println(""+primerCifra);
+        System.out.println(""+segCifra);
+        System.out.println(""+terCifra);
+    }
+
+    private static void ej15(){
+        int num;
+        System.out.println("Ingrese un entero de 5 cifras: ");
+
+        num = ingreso.nextInt();
+        String numStr = Integer.toString(num);
+
+        for (int i = 0; i < numStr.length(); i++) {
+            if (i % 2 == 0) {
+                System.out.println(numStr.charAt(i));
+            }
+        }
+    }
+
+    private static  void ej16(){
+        int H;
+        int M;
+        int S;
+
+        System.out.println("Ingrese una hora:");
+        H = ingreso.nextInt();
+        while (H>23 || H<0){
+            System.out.println("ERROR: Hora ingresada invalida");
+            H = ingreso.nextInt();
+        }
+        System.out.println("Ingrese los minutos: ");
+        M = ingreso.nextInt();
+        while (M<0 || M>59){
+            System.out.println("ERROR: Minutos ingresados invalidos");
+            M = ingreso.nextInt();
+        }
+        System.out.println("Ingrese los segundos");
+        S = ingreso.nextInt();
+        while (S<0 || S>59){
+            System.out.println("ERROR: Segundos ingresados invalidos:");
+            S= ingreso.nextInt();
+        }
+
+        System.out.printf("HORA INGRESADA: %d : %d : %d", H,M,S);
+
+        }
+        private static void ej17(){
+            String name;
+            int age;
+            double sal;
+
+            System.out.println("Ingrese el nombre del trabajador: ");
+            name = ingreso.nextLine();
+            System.out.println("Ingrese la edad: ");
+            age = ingreso.nextInt();
+            System.out.println("Ingrese el salario: ");
+            sal = ingreso.nextDouble();
+
+            if (age > 15){
+                if (age > 18 && age <51){
+                    sal = sal + (sal * 0.05);
+                }
+                if (age>50 && age<61){
+                    sal = sal +(sal * 0.1);
+                }
+                if (age>60){
+                    sal = sal + ( sal*0.15);
+                }
+                System.out.println("El salario del trabajador es de : " + sal);
+            }else{
+                System.out.println("ERROR: El trabajador no tiene edad para trabajar");
+            }
+
+        }
+
+        private static void ej18(){
+            double peso;
+            double altura;
+            double rango;
+
+            System.out.println("Ingrese su peso: ");
+            peso = ingreso.nextDouble();
+            System.out.println("Ingrese su altura: ");
+            altura = ingreso.nextDouble();
+
+            rango = peso / pow(altura,2);
+
+            System.out.println("El rango saludable de la persona es de: "+rango);
+
+        }
+        
 }
